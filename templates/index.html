@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teste OAuth</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; max-width: 680px; margin: 4rem auto; padding: 0 1rem; }
+      .status { padding: 1rem; border-radius: .5rem; background: #f1f5f9; margin: 1rem 0; }
+      a { display: inline-block; padding: .7rem 1rem; background: #2563eb; color: white; border-radius: .4rem; text-decoration: none; }
+      code { background: #e2e8f0; padding: .15rem .3rem; border-radius: .25rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Laboratório OAuth</h1>
+    {% if configured %}
+      <p class="status">Credenciais encontradas localmente. Elas não ficam no repositório.</p>
+      <a href="/auth">Conectar ao Gmail</a>
+    {% else %}
+      <p class="status">Credenciais não configuradas.</p>
+      <p>Defina <code>GOOGLE_CLIENT_SECRET_FILE</code> apontando para o JSON do Google Cloud.</p>
+    {% endif %}
+    <p><a href="/api/status">Ver status da conexão</a></p>
+    <h2>Outros provedores</h2>
+    <p>Configure os dados OAuth no ambiente e use os endpoints:</p>
+    <ul>
+      <li><code>/auth/github</code> — <code>/api/status/github</code></li>
+      <li><code>/auth/discord</code> — <code>/api/status/discord</code></li>
+      <li><code>/auth/microsoft</code> — <code>/api/status/microsoft</code></li>
+      <li><code>/auth/spotify</code> — <code>/api/status/spotify</code></li>
+    </ul>
+    <p><a href="/api/providers">Ver provedores configurados</a></p>
+  </body>
+</html>
